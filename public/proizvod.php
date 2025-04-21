@@ -75,41 +75,39 @@
 </div>
 
 
-  <table class="table">
-  
-    <thead>
-        <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Skladište ID</th>
-        <th scope="col">Cijena</th>
-        <th scope="col">Slika</th>
-        </tr>
-  </thead>
-  <tbody>
-   
-
-
-
-
-    <?php
-    include("../includes/db__connection.php");
-    
-    $query = "SELECT IDProizvod, SkladisteID, Cijena FROM proizvod";
-    
-    $result = mysqli_query($db, $query) or die ("Greska u SQLu");
-    while($row = mysqli_fetch_array($result))
-    {
-        echo'
-        <tr>
-            <td>' . $row["IDProizvod"]. '</td>
-            <td>' . $row["SkladisteID"]. '</td>
-            <td>' . $row["Cijena"]. '</td>
-        </tr>';
-    }
-    ?>
-  </tbody>
-  </table>
-
+<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Skladište ID</th>
+                <th scope="col">Cijena</th>
+                <th scope="col">Slika</th>
+                <th scope="col">Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include("../includes/db__connection.php");
+            
+            $query = "SELECT IDProizvod, SkladisteID, Cijena, Slika FROM proizvod";
+            
+            $result = mysqli_query($db, $query) or die ("Greska u SQLu");
+            while($row = mysqli_fetch_array($result))
+            {
+                echo'
+                <tr>
+                    <td>' . $row["IDProizvod"]. '</td>
+                    <td>' . $row["SkladisteID"]. '</td>
+                    <td>' . $row["Cijena"]. '</td>
+                    <td>' . $row["Slika"]. '</td>
+                    <td>
+                        <a href="obrisi_proizvod.php?id='.$row["IDProizvod"].'" class="btn btn-danger">Obriši</a>
+                    </td>
+                </tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -75,41 +75,38 @@
 </div>
 
 
-  <table class="table">
-  
+<table class="table">
     <thead>
         <tr>
-        <th scope="col">ID ponude</th>
-        <th scope="col">Cijena</th>
-        <th scope="col">Količina proizvoda</th>
-        <th scope="col">Popust</th>
+            <th scope="col">ID ponude</th>
+            <th scope="col">Cijena</th>
+            <th scope="col">Količina proizvoda</th>
+            <th scope="col">Popust</th>
         </tr>
-  </thead>
-  <tbody>
-   
-
-
-
-
-    <?php
-    include("../includes/db__connection.php");
-    
-    $query = "SELECT IDPonuda, Cijena, KolicinaProizvoda, Popust FROM ponuda";
-    
-    $result = mysqli_query($db, $query) or die ("Greska u SQLu");
-    while($row = mysqli_fetch_array($result))
-    {
-        echo'
-        <tr>
-            <td>' . $row["IDPonuda"]. '</td>
-            <td>' . $row["Cijena"]. '</td>
-            <td>' . $row["KolicinaProizvoda"]. '</td>
-            <td>' . $row["Popust"]. '</td>
-        </tr>';
-    }
-    ?>
-  </tbody>
-  </table>
+    </thead>
+    <tbody>
+        <?php
+        include("../includes/db__connection.php");
+        
+        $query = "SELECT IDPonuda, Cijena, KolicinaProizvoda, Popust FROM ponuda";
+        
+        $result = mysqli_query($db, $query) or die ("Greska u SQLu");
+        while($row = mysqli_fetch_array($result))
+        {
+            echo'
+            <tr>
+                <td>' . $row["IDPonuda"]. '</td>
+                <td>' . $row["Cijena"]. '</td>
+                <td>' . $row["KolicinaProizvoda"]. '</td>
+                <td>' . $row["Popust"]. '</td>
+                <td>
+                    <a href="obrisi_ponudu.php?IDPonuda='.$row["IDPonuda"].'" class="btn btn-danger">Obriši</a>
+                </td>
+            </tr>';
+        }
+        ?>
+    </tbody>
+</table>
 
 
  

@@ -80,42 +80,39 @@
 </div>
 
 
-  <table class="table">
-  
-    <thead>
-        <tr>
-       
-        <th scope="col">Ime</th>
-        <th scope="col">Prezime</th>
-        <th scope="col">OIB</th>
-        <th scope="col">Broj telefona</th>
-        </tr>
-  </thead>
-  <tbody>
-   
-
-
-
-
-    <?php
-    include("../includes/db__connection.php");
-    
-    $query = "SELECT Ime, Prezime, OIB, BrojTelefona FROM kupac";
-    
-    $result = mysqli_query($db, $query) or die ("Greska u SQLu");
-    while($row = mysqli_fetch_array($result))
-    {
-        echo'
-        <tr>
-            <td>' . $row["Ime"]. '</td>
-            <td>' . $row["Prezime"]. '</td>
-            <td>' . $row["OIB"]. '</td>
-            <td>' . $row["BrojTelefona"]. '</td>
-        </tr>';
-    }
-    ?>
-  </tbody>
-  </table>
+<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Ime</th>
+                <th scope="col">Prezime</th>
+                <th scope="col">OIB</th>
+                <th scope="col">Broj telefona</th>
+                <th scope="col">Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include("../includes/db__connection.php");
+            
+            $query = "SELECT IDKupac, Ime, Prezime, OIB, BrojTelefona FROM kupac";
+            
+            $result = mysqli_query($db, $query) or die ("Greska u SQLu");
+            while($row = mysqli_fetch_array($result))
+            {
+                echo'
+                <tr>
+                    <td>' . $row["Ime"]. '</td>
+                    <td>' . $row["Prezime"]. '</td>
+                    <td>' . $row["OIB"]. '</td>
+                    <td>' . $row["BrojTelefona"]. '</td>
+                    <td>
+                        <a href="obrisi_kupca.php?id='.$row["IDKupac"].'" class="btn btn-danger">Obriši</a>
+                    </td>
+                </tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 
 
  

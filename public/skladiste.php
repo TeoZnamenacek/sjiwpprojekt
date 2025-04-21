@@ -83,45 +83,43 @@
 </div>
 
 
-  <table class="table">
-  
-    <thead>
-        <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Adresa</th>
-        <th scope="col">Kučni broj</th>
-        <th scope="col">Broj telefona</th>
-        <th scope="col">Ponuda ID</th>
-        <th scope="col">Raspoloživost proizvoda</th>
-        </tr>
-  </thead>
-  <tbody>
-   
-
-
-
-
-    <?php
-    include("../includes/db__connection.php");
-    
-    $query = "SELECT IDSkladiste, Adresa, KucniBroj, BrojTelefona, PonudaID, RaspolozivostProizvoda FROM skladiste";
-    
-    $result = mysqli_query($db, $query) or die ("Greska u SQLu");
-    while($row = mysqli_fetch_array($result))
-    {
-        echo'
-        <tr>
-            <td>' . $row["IDSkladiste"]. '</td>
-            <td>' . $row["Adresa"]. '</td>
-            <td>' . $row["KucniBroj"]. '</td>
-            <td>' . $row["BrojTelefona"]. '</td>
-            <td>' . $row["PonudaID"]. '</td>
-            <td>' . $row["RaspolozivostProizvoda"]. '</td>
-        </tr>';
-    }
-    ?>
-  </tbody>
-  </table>
+<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Adresa</th>
+                <th scope="col">Kučni broj</th>
+                <th scope="col">Broj telefona</th>
+                <th scope="col">Ponuda ID</th>
+                <th scope="col">Raspoloživost proizvoda</th>
+                <th scope="col">Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include("../includes/db__connection.php");
+            
+            $query = "SELECT IDSkladiste, Adresa, KucniBroj, BrojTelefona, PonudaID, RaspolozivostProizvoda FROM skladiste";
+            
+            $result = mysqli_query($db, $query) or die ("Greska u SQLu");
+            while($row = mysqli_fetch_array($result))
+            {
+                echo'
+                <tr>
+                    <td>' . $row["IDSkladiste"]. '</td>
+                    <td>' . $row["Adresa"]. '</td>
+                    <td>' . $row["KucniBroj"]. '</td>
+                    <td>' . $row["BrojTelefona"]. '</td>
+                    <td>' . $row["PonudaID"]. '</td>
+                    <td>' . $row["RaspolozivostProizvoda"]. '</td>
+                    <td>
+                        <a href="obrisi_skladiste.php?id='.$row["IDSkladiste"].'" class="btn btn-danger">Obriši</a>
+                    </td>
+                </tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 
 
  
