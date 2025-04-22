@@ -1,14 +1,14 @@
 <?php
-include '../db__connection.php';
+include '../includes/db__connection.php';
 
 $id = $_GET['IDSkladiste'];
-$sql = "DELETE FROM skladiste WHERE IDSkladiste = $id";
+$sql = 'DELETE FROM skladiste WHERE IDSkladiste = $id';
 $result = mysqli_query($db, $sql);
 if ($result) {
     echo "Zapis je obrisan";
 } else {
     echo "Došlo je do pogreške <br>";
-	
+
 	echo mysqli_errno($db) . ":" . mysqli_error($db) . "\n";
 }
 
