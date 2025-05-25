@@ -113,7 +113,7 @@
                     <td>' . $row["PonudaID"]. '</td>
                     <td>' . $row["RaspolozivostProizvoda"]. '</td>
                     <td>
-                        <a href="obrisi_skladiste.php?id='.$row["IDSkladiste"].'" class="btn btn-danger">Obriši</a>
+                        <a href="../utils/obrisi_skladiste.php?id='.$row["IDSkladiste"].'" class="btn btn-danger">Obriši</a>
                     </td>
                 </tr>';
             }
