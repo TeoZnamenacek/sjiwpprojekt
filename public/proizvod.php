@@ -81,7 +81,9 @@
                 <th scope="col">ID</th>
                 <th scope="col">Skladište ID</th>
                 <th scope="col">Cijena</th>
-                <th scope="col">Slika</th>
+                <!--  <th scope="col">Slika</th> 
+                  <td>' . $row["Slika"]. '</td> 
+                -->
                 <th scope="col">Akcije</th>
             </tr>
         </thead>
@@ -99,7 +101,7 @@
                     <td>' . $row["IDProizvod"]. '</td>
                     <td>' . $row["SkladisteID"]. '</td>
                     <td>' . $row["Cijena"]. '</td>
-                    <td>' . $row["Slika"]. '</td>
+                    
                     <td>
                         <a href="obrisi_proizvod.php?id='.$row["IDProizvod"].'" class="btn btn-danger">Obriši</a>
                     </td>

@@ -106,7 +106,7 @@
                     <td>' . $row["OIB"]. '</td>
                     <td>' . $row["BrojTelefona"]. '</td>
                     <td>
-                        <a href="obrisi_kupca.php?id='.$row["IDKupac"].'" class="btn btn-danger">Obriši</a>
+                        <a href="obrisi_korisnika.php?id='.$row["IDKupac"].'" class="btn btn-danger">Obriši</a>
                     </td>
                 </tr>';
             }

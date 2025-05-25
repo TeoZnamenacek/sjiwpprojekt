@@ -1,5 +1,5 @@
 <?php
-include '../db__connection.php';
+include '../includes/db__connection.php';
 
 $id = $_GET['IDKupac'];
 $sql = "DELETE FROM kupac WHERE IDKupac = $id";
